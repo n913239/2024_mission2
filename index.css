@@ -6,10 +6,11 @@
 }
 
 body {
-    font-family: "Noto Sans", "sans-serif";
+    font-family: "Noto Sans", sans-serif;
     line-height: 1.5;
     font-weight: 400;
     padding-top: 60px;
+    font-size: 16px;
 }
 
 /* #region header */
@@ -24,6 +25,7 @@ body {
 .header-inner {
     display: flex;
     align-items: center;
+    margin: 0 auto;
     flex-wrap: wrap;
     padding-top: 8px;
     padding-bottom: 8px;
@@ -40,7 +42,6 @@ body {
 
 .menu .menu-list a {
     color: #000;
-    font-size: 16px;
     line-height: 1.5;
     text-decoration: none;
     padding: 4px 8px;
@@ -75,6 +76,10 @@ body {
 .menu .menu-list a:hover::before,
 .menu .menu-list a:hover::after {
     opacity: 1;
+}
+
+.menu .active a {
+    font-weight: 600;
 }
 
 .menu-btn {
@@ -116,32 +121,28 @@ body {
 img {
     max-width: 100%;
     height: auto;
+    vertical-align: middle;
 }
 
+/* #region banner */
 .title {
     text-align: center;
     margin-bottom: 120px;
 }
 
-.title-inner {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.title-inner p {
-    display: block;
-    padding-right: 40px;
-}
-
-.title-inner p span {
-    display: block;
-    color: #5B5B5B;
-}
-
 .quote {
     padding: 71px 59px;
     position: relative;
+    max-width: 670px;
+    margin: 0 auto;
+}
+
+.quote .quote-img {
+   background-image: url("./images/Vector.png");
+   background-size: 100% 8px;
+   background-repeat: no-repeat;
+   background-position: bottom left;
+   display: inline-block;
 }
 
 .title h2 {
@@ -153,7 +154,7 @@ img {
     width: 72px;
     height: 72px;
     top: 0;
-    left: auto;
+    left: 0;
 }
 
 .quote .rightimg {
@@ -161,14 +162,32 @@ img {
     width: 72px;
     height: 72px;
     bottom: 0;
-    margin-right: 0;
+    right: 0;
 }
+
+.title-inner {
+    display: flex;
+    justify-content: center;
+    max-width: 636px;
+    margin: 0 auto;
+}
+
+.title-inner-text {
+    display: flex;
+    flex-direction: column;
+}
+
+.title-inner-text span {
+    display: block;
+    color: #5B5B5B;
+}
+
+/* #endregion banner */
 
 /* #region works */
 .work-list img {
     border-radius: 8px;
     margin-bottom: 16px;
-    vertical-align: middle;
     border: 1px solid #F1F1F1;
 }
 
@@ -184,26 +203,32 @@ h2 {
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
-    padding: 0 12px;
+    padding: 0 10px;
     background: #fff;
 }
 
 .work-list {
-    /* width: 636px; */
-    width: 48%;
-    margin-bottom: 80px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0 24px;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+.work-list .card {
+    width: calc(50% - 24px);
+    margin-top: 80px;
 }
 
 .work-list li p {
     color: #919191;
-    font-size: 16px;
     margin-bottom: 24px;
 }
 
 .work-tags {
     display: flex;
     justify-content: flex-start;
-    font-size: 16px;
 }
 
 .work-tags li {
@@ -222,7 +247,7 @@ h2 {
     display: flex;
     justify-content: center;
     padding: 16px 0;
-    margin-top: 56px;
+    margin-top: 72px;
     margin-bottom: 104px;
 }
 
@@ -295,7 +320,6 @@ h2 {
 }
 
 .footer-social img {
-    vertical-align: middle;
     margin-right: 10px;
 }
 
@@ -343,14 +367,22 @@ h2 {
 /* iPad */
 @media(max-width:767px) {
     h2 {
-        color: blue;
-        font-size: 30px;
+        color: #1E1E1E;
+        font-size: 24px;
     }
 
     .work-list {
         /* width: 636px; */
         width: 98%;
         margin-bottom: 80px;
+    }
+
+    .work-list .card {
+        width: 98%;
+    }
+
+    .work-tags {
+        display: none;
     }
 
     .footer {
